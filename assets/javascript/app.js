@@ -78,8 +78,69 @@ function decrement() {
 }
 
 function gameOver(){
+		$.each($("input[name='question-0']:checked"), function() {
+      if ($(this).val() == questions[0].correctAnswer) {
+        correct++;
+      } else {
+        incorrect++;
+      }
+    });
+    $.each($("input[name='question-1']:checked"), function() {
+        if ($(this).val() == questions[1].correctAnswer) {
+        correct++;
+      } else {
+        incorrect++;
+      }
+    });
+    $.each($("input[name='question-2']:checked"), function() {
+      if ($(this).val() == questions[2].correctAnswer) {
+        correct++;
+      } else {
+        incorrect++;
+      }
+    });
+    $.each($("input[name='question-3']:checked"), function() {
+      if ($(this).val() == questions[3].correctAnswer) {
+        correct++;
+      } else {
+        incorrect++;
+      }
+    });
+    $.each($("input[name='question-4']:checked"), function() {
+      if ($(this).val() == questions[4].correctAnswer) {
+        correct++;
+      } else {
+        incorrect++;
+      }
+    });
+    $.each($("input[name='question-5']:checked"), function() {
+      if ($(this).val() == questions[5].correctAnswer) {
+        correct++;
+      } else {
+        incorrect++;
+      }
+    });
+    $.each($("input[name='question-6']:checked"), function() {
+      if ($(this).val() == questions[6].correctAnswer) {
+        correct++;
+      } else {
+        incorrect++;
+      }
+    });
+    $.each($("input[name='question-7']:checked"), function() {
+      if ($(this).val() == questions[7].correctAnswer) {
+        correct++;
+      } else {
+        incorrect++;
+      }
+    });
+
+  this.result();
+}
+
+function result(){
 	clearInterval(intervalId);
 	$('#questions').html('Correct Answers: ' + correct);
 	$('#questions').append('<br>Incorrect Answers: ' + incorrect);
-	$('#questions').append('<br>Unanswered: ' + unanswered);
+	$('#questions').append('<br>Unanswered: ' + (questions.length - (incorrect + correct)));
 }
